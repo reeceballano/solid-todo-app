@@ -9,6 +9,7 @@ const Todo = ({ todo, update, remove, edit }) => {
     }
 
     const handleEdit = (e) => {
+        if(e.length < 3) { return }
         setNewTitle(e);
         const updatedTodo = {...todo, name: newTitle()}
         edit(updatedTodo);
