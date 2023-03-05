@@ -28,6 +28,10 @@ const App = () => {
         setTodos(newTodos);
     }
 
+    const updateTodoTitle = (newTitle) => {
+        console.log('parent new title', newTitle);
+    }
+
     return(
         <div className="app">
             <form onSubmit={addTodo}>
@@ -35,7 +39,7 @@ const App = () => {
             </form>
             <For each={todos()}>
                 {
-                    (todo, i) => <Todo update={() => updateTodo(todo.id)} remove={() => removeTodo(todo.id)} todo={todo} key={i} />
+                    (todo, i) => <Todo update={() => updateTodo(todo.id)} edit={(e)=> updateTodoTitle(e)} remove={() => removeTodo(todo.id)} todo={todo} key={i} />
                 }
             </For>
         </div>
