@@ -8,10 +8,16 @@ const Todo = ({ todo, update, remove, edit }) => {
         
     }
 
+    const handleEdit = (e) => {
+        setNewTitle(e);
+        const updatedTodo = {...todo, name: newTitle()}
+        edit(updatedTodo);
+    }
+
     return(
         <div className="todo-item">
             {todo.id} {todo.name} {JSON.stringify(todo.status)}
-            { isEditing() ? <input type="text" value={newTitle()} onChange={(e) => edit(e.target.value)}/> : ''}
+            { isEditing() ? <input type="text" value={newTitle()} onChange={(e) => handleEdit(e.target.value)}/> : ''}
             <button onClick={() => handleEditing()}>edit</button>
             <button onClick={() => update()}>update</button>
             <button onClick={() => remove()}>remove</button>

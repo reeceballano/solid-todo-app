@@ -28,8 +28,12 @@ const App = () => {
         setTodos(newTodos);
     }
 
-    const updateTodoTitle = (newTitle) => {
-        console.log('parent new title', newTitle);
+    const updateTodoTitle = (todo) => {
+        console.log('parent new title', todo);
+        const updatedTodos = [...todos()].map(item => item.id == todo.id ? {...item, name: todo.name} : item);
+        // console.log(updatedTodos)
+        if(!updatedTodos) { return }
+        return setTodos(updatedTodos);    
     }
 
     return(
@@ -37,6 +41,7 @@ const App = () => {
             <form onSubmit={addTodo}>
                 <input type="text" placeholder="new todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />
             </form>
+            { JSON.stringify(todos())}
             <For each={todos()}>
                 {
                     (todo, i) => <Todo update={() => updateTodo(todo.id)} edit={(e)=> updateTodoTitle(e)} remove={() => removeTodo(todo.id)} todo={todo} key={i} />
