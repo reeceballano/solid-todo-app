@@ -29,7 +29,7 @@ const Todo = ({ todo, update, remove, edit }) => {
                 </div>
 
                 <div className="todo-action">
-                    <RemoveButton onClick={() => remove()} />
+                    <RemoveButton remove={() => remove()} />
                 </div>
             </div>
             { 
