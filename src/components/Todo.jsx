@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
 import EditButton from "./EditButton";
+import RemoveButton from "./RemoveButton";
 
 const Todo = ({ todo, update, remove, edit }) => {
     const [isEditing, setIsEditing] = createSignal(false);
@@ -20,7 +21,7 @@ const Todo = ({ todo, update, remove, edit }) => {
         <div className="todo-item">
             <div className="todo-meta">
                 <div className="todo-title-container">
-                    <input className="todo-checkbox" type="checkbox" checked={todo.status}/>
+                    <input className="todo-checkbox" type="checkbox" checked={todo.status} onChange={() => update()}/>
                     <span className={`todo-title ${todo.status ? 'todo-done' : ''}`}>
                         {todo.name} 
                         <EditButton edit={() => handleEditing() } />
@@ -28,9 +29,7 @@ const Todo = ({ todo, update, remove, edit }) => {
                 </div>
 
                 <div className="todo-action">
-                    
-                    <button onClick={() => update()}>update</button>
-                    <button onClick={() => remove()}>remove</button>
+                    <RemoveButton onClick={() => remove()} />
                 </div>
             </div>
             { 
