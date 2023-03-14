@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app-container {
+    @apply md:w-4/12 mx-auto my-6 shadow-md p-10 rounded-lg
+}

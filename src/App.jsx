@@ -38,15 +38,17 @@ const App = () => {
 
     return(
         <div className="app">
-            <form onSubmit={addTodo}>
-                <input type="text" placeholder="new todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />
-            </form>
-            { JSON.stringify(todos())}
-            <For each={todos()}>
-                {
-                    (todo, i) => <Todo update={() => updateTodo(todo.id)} edit={(e)=> updateTodoTitle(e)} remove={() => removeTodo(todo.id)} todo={todo} key={i} />
-                }
-            </For>
+            <div className="app-container">
+                <form onSubmit={addTodo}>
+                    <input type="text" placeholder="new todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />
+                </form>
+
+                <For each={todos()}>
+                    {
+                        (todo, i) => <Todo update={() => updateTodo(todo.id)} edit={(e)=> updateTodoTitle(e)} remove={() => removeTodo(todo.id)} todo={todo} key={i} />
+                    }
+                </For>
+            </div>
         </div>
     )
 }
