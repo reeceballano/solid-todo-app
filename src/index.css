@@ -6,6 +6,22 @@
     @apply md:w-4/12 w-4/5 mx-auto my-6 shadow-lg shadow-slate-100 p-10 rounded-lg border border-slate-100
 }
 
+/**
+    ADD FORM
+*/
+
 .add-form input {
     @apply w-full border-b-2 outline-none py-3 focus:border-blue-400 transition-colors delay-75 ease-in-out mb-8
+}
+
+/**
+    TODO ITEM
+*/
+
+.todo-item {
+    @apply pb-3 mb-3 border-b border-slate-200 flex justify-between
+}
+
+.todo-title {
+    @apply text-2xl text-slate-600 
 }

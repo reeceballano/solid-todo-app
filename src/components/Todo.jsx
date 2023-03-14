@@ -17,11 +17,14 @@ const Todo = ({ todo, update, remove, edit }) => {
 
     return(
         <div className="todo-item">
-            {todo.id} {todo.name} {JSON.stringify(todo.status)}
-            { isEditing() ? <input type="text" value={newTitle()} onChange={(e) => handleEdit(e.target.value)}/> : ''}
-            <button onClick={() => handleEditing()}>edit</button>
-            <button onClick={() => update()}>update</button>
-            <button onClick={() => remove()}>remove</button>
+            <span className="todo-title">{todo.name}</span>
+
+            <div className="todo-action">
+                { isEditing() ? <input type="text" value={newTitle()} onChange={(e) => handleEdit(e.target.value)}/> : ''}
+                <button onClick={() => handleEditing()}>edit</button>
+                <button onClick={() => update()}>update</button>
+                <button onClick={() => remove()}>remove</button>
+            </div>
         </div>
     )
 }
