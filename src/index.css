@@ -19,9 +19,37 @@
 */
 
 .todo-item {
-    @apply pb-3 mb-3 border-b border-slate-200 flex justify-between
+    @apply pb-3 mb-3 border-b border-slate-200
+}
+
+.todo-meta {
+    @apply  flex justify-between
 }
 
 .todo-title {
     @apply text-2xl text-slate-600 
+}
+
+.action-btn {
+    @apply w-3
+}
+
+.edit-text {
+    @apply my-3
+}
+
+.edit-text input {
+    @apply w-full outline-none border border-blue-100 py-2 px-2
+}
+
+.edit-btn {
+    @apply ml-2
+}
+
+.todo-checkbox {
+    @apply w-4 h-4 text-blue-600 mr-3
+}
+
+.todo-done {
+    @apply line-through text-slate-200
 }
