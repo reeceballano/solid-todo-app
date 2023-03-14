@@ -39,7 +39,7 @@ const App = () => {
     return(
         <div className="app">
             <div className="app-container">
-                <form onSubmit={addTodo}>
+                <form className="add-form" onSubmit={addTodo}>
                     <input type="text" placeholder="new todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />
                 </form>
 
