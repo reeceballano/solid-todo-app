@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .app-container {
-    @apply md:w-4/12 w-4/5 mx-auto md:mt-20 shadow-lg shadow-slate-100 p-10 rounded-lg border border-slate-100
+    @apply md:w-4/12 w-11/12 mx-auto mt-10 md:mt-20 shadow-lg shadow-slate-100 p-10 rounded-lg border border-slate-100
 }
 
 /**
