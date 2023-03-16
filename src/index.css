@@ -23,7 +23,21 @@
 */
 
 .todo-item {
-    @apply pb-3 mb-3 border-b border-slate-200 transition-all delay-100 hover:scale-105
+    @apply pb-3 mb-3 border-b border-slate-200 transition-all delay-100 relative
+    before:transition-all
+    before:ease-in-out
+    before:delay-100
+    before:content-['']
+    hover:before:content-['-'] 
+    before:w-0
+    hover:before:w-1
+    before:h-5
+    before:bg-blue-500
+    before:absolute
+    before:top-1
+    before:bottom-0
+    before:-left-10
+    before:text-transparent
 }
 
 .todo-meta {
