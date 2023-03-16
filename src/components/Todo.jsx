@@ -19,7 +19,7 @@ const Todo = ({ todo, update, remove, edit }) => {
     let inputText;
 
     return(
-        <div className="todo-item">
+        <div className="todo-item" onDblClick={() => handleEditing()}>
             <div className="todo-meta">
                 <div className="todo-title-container">
                     <input className="todo-checkbox" type="checkbox" checked={todo.status} onChange={() => update()}/>
