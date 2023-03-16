@@ -6,7 +6,7 @@ const Todo = ({ todo, update, remove, edit }) => {
     const [newTitle, setNewTitle] = createSignal(todo.name);
     const handleEditing = () => {
         setIsEditing((old) => !old);
-        
+        inputText.focus();
     }
 
     const handleEdit = (e) => {
@@ -15,6 +15,8 @@ const Todo = ({ todo, update, remove, edit }) => {
         const updatedTodo = {...todo, name: newTitle()}
         edit(updatedTodo);
     }
+
+    let inputText;
 
     return(
         <div className="todo-item">
@@ -42,7 +44,7 @@ const Todo = ({ todo, update, remove, edit }) => {
             { 
                 isEditing() ? 
                     <div className="edit-text">
-                        <input type="text" value={newTitle()} onChange={(e) => handleEdit(e.target.value)}/> 
+                        <input ref={inputText} type="text" value={newTitle()} onChange={(e) => handleEdit(e.target.value)}/> 
                     </div>
                 : ''
             }
