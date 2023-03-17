@@ -1,5 +1,6 @@
 import { createSignal } from "solid-js";
 import Todo from "./components/Todo";
+import Input from "./components/Input";
 
 const App = () => {
     const [todo, setTodo] = createSignal('');
@@ -39,7 +40,9 @@ const App = () => {
     return(
         <div className="app">
             <div className="app-container">
+                {todo()}
                 <form className="add-form" onSubmit={addTodo}>
+                    <Input placeHolder="New todo.." value={todo()} setValue={setTodo()}/>
                     <input type="text" placeholder="New todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />
                 </form>
 
