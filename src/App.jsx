@@ -1,6 +1,7 @@
-import { createSignal } from "solid-js";
+import { createEffect, createSignal } from "solid-js";
 import Todo from "./components/Todo";
 import Input from "./components/Input";
+import MouseCursor from "./components/MouseCursor";
 
 const App = () => {
     const [todo, setTodo] = createSignal('');
@@ -9,6 +10,7 @@ const App = () => {
         { id: 2, name: 'Tulog', status: false },
         { id: 3, name: 'Gala', status: true },
     ])
+    const [position, setPosition] = createSignal({x: 0, y: 0});
 
     const addTodo = (e) => {
         e.preventDefault();
@@ -37,9 +39,27 @@ const App = () => {
         return setTodos(updatedTodos);    
     }
 
+    createEffect(() => {
+        console.log('todos', todos())
+    })
+
+    const handleMouseMove = (e) => {
+        setPosition({
+            x: e.clientX,
+            y: e.clientY
+        })
+    }
+
+    const style = {
+        left: position().x + 'px;',
+        top: position().y + 'px;'
+    }
+
     return(
-        <div className="app">
+        <div onMouseMove={handleMouseMove} className="app">
+            {/* <MouseCursor pos={position()} /> */}
             <div className="app-container">
+                {/* {JSON.stringify(position())} */}
                 <form className="add-form" onSubmit={addTodo}>
                     {/* <Input placeHolder="New todo.." value={todo()} setValue={setTodo()}/> */}
                     <input type="text" placeholder="New todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />

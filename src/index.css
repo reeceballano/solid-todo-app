@@ -88,3 +88,7 @@
 .todo-done {
     @apply line-through text-slate-200
 }
+
+.mouse-cursor {
+    @apply w-5 h-5 bg-red-200/60 rounded-full absolute
+}
