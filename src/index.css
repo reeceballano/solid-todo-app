@@ -92,3 +92,15 @@
 .mouse-cursor {
     @apply w-5 h-5 bg-red-200/60 rounded-full absolute
 }
+
+/**
+    FILTER BY
+*/
+
+.filter-by form {
+    @apply flex justify-between
+}
+
+.form-group {
+    @apply flex gap-1 text-xs
+}

@@ -2,6 +2,7 @@ import { createEffect, createSignal } from "solid-js";
 import Todo from "./components/Todo";
 import Input from "./components/Input";
 import MouseCursor from "./components/MouseCursor";
+import FilterBy from "./components/FilterBy";
 
 const App = () => {
     const [todo, setTodo] = createSignal('');
@@ -11,6 +12,7 @@ const App = () => {
         { id: 3, name: 'Gala', status: true },
     ])
     const [position, setPosition] = createSignal({x: 0, y: 0});
+    const [filter, setFilter] = createSignal('All');
 
     const addTodo = (e) => {
         e.preventDefault();
@@ -39,8 +41,22 @@ const App = () => {
         return setTodos(updatedTodos);    
     }
 
+    const filteredTodos = () => {
+        if(filter() == 'All') {
+            return todos();
+        }
+
+        if(filter() == 'Completed') {
+            return todos().filter(item => item.status == true);
+        }
+
+        if(filter() == 'NotComplete') {
+            return todos().filter(item => item.status == false);
+        }
+    }
+
     createEffect(() => {
-        console.log('todos', todos())
+        console.log('todos', todos());
     })
 
     const handleMouseMove = (e) => {
@@ -55,17 +71,25 @@ const App = () => {
         top: position().y + 'px;'
     }
 
+    const filterBy = (e) => {
+        const { value } = e.target;
+        setFilter(value);
+    }
+
     return(
         <div onMouseMove={handleMouseMove} className="app">
             {/* <MouseCursor pos={position()} /> */}
             <div className="app-container">
                 {/* {JSON.stringify(position())} */}
+                
+                <FilterBy onClick={filterBy}/>
+
                 <form className="add-form" onSubmit={addTodo}>
                     {/* <Input placeHolder="New todo.." value={todo()} setValue={setTodo()}/> */}
                     <input type="text" placeholder="New todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />
                 </form>
 
-                <For each={todos()}>
+                <For each={filteredTodos()}>
                     {
                         (todo, i) => <Todo update={() => updateTodo(todo.id)} edit={(e)=> updateTodoTitle(e)} remove={() => removeTodo(todo.id)} todo={todo} key={i} />
                     }
