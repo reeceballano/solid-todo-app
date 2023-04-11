@@ -80,8 +80,6 @@ const App = () => {
         <div onMouseMove={handleMouseMove} className="app">
             {/* <MouseCursor pos={position()} /> */}
             <div className="app-container">
-                {/* {JSON.stringify(position())} */}
-                
                 <FilterBy onClick={filterBy}/>
 
                 <form className="add-form" onSubmit={addTodo}>
