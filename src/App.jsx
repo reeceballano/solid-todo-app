@@ -78,7 +78,6 @@ const App = () => {
 
     return(
         <div onMouseMove={handleMouseMove} className="app">
-            {/* <MouseCursor pos={position()} /> */}
             <div className="app-container">
                 <FilterBy onClick={filterBy}/>
 
