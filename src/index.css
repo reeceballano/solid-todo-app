@@ -15,7 +15,7 @@
 */
 
 .add-form input {
-    @apply w-full border-b-2 outline-none py-3 focus:border-blue-400 transition-colors delay-75 ease-in-out mb-8 text-xl
+    @apply w-full border-b-2 outline-none py-3 border-purple-300 focus:border-purple-600 transition-colors delay-75 ease-in-out mb-8 text-xl
 }
 
 /**
