@@ -79,13 +79,14 @@ const App = () => {
     return(
         <div onMouseMove={handleMouseMove} className="app">
             <div className="app-container">
-                <FilterBy onClick={filterBy}/>
 
                 <form className="add-form" onSubmit={addTodo}>
                     {/* <Input placeHolder="New todo.." value={todo()} setValue={setTodo()}/> */}
                     <input type="text" placeholder="New todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />
                 </form>
 
+                <FilterBy onClick={filterBy}/>
+                
                 <For each={filteredTodos()}>
                     {
                         (todo, i) => <Todo update={() => updateTodo(todo.id)} edit={(e)=> updateTodoTitle(e)} remove={() => removeTodo(todo.id)} todo={todo} key={i} />

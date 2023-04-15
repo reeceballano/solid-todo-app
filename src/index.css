@@ -97,6 +97,10 @@
     FILTER BY
 */
 
+.filter-by {
+    @apply mb-5 py-4 border-y border-slate-100
+}
+
 .filter-by form {
     @apply flex justify-between
 }
