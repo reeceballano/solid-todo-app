@@ -3,7 +3,7 @@ const FilterBy = ({onClick}) => {
         <div className="filter-by">
             <form>
                 <div className="form-group">
-                    <input onClick={onClick} name="filterby" id="all" type="radio" value="All" />
+                    <input onClick={onClick} name="filterby" id="all" type="radio" value="All" checked />
                     <label>All</label>
                 </div>
                 <div className="form-group">
