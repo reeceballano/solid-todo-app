@@ -9,11 +9,11 @@ const FilterBy = ({onClick}) => {
                     </div>
                     <div className="form-group">
                         <input onClick={onClick}  name="filterby" id="completed" type="radio" value="Completed" />
-                        <label for="completed">Completed</label>
+                        <label for="completed">Done</label>
                     </div>
                     <div className="form-group">
                         <input onClick={onClick}  name="filterby" id="notcomplete" type="radio" value="NotComplete" />
-                        <label for="notcomplete">Not Complete</label>
+                        <label for="notcomplete">Active</label>
                     </div>
                 </div>
             </form>
