@@ -85,7 +85,7 @@ const App = () => {
                     <input type="text" placeholder="New todo" value={todo()} onInput={(e) => setTodo(e.target.value)} />
                 </form>
 
-                <FilterBy onClick={filterBy}/>
+                <FilterBy todos={todos()} onClick={filterBy}/>
                 
                 <For each={filteredTodos()}>
                     {
